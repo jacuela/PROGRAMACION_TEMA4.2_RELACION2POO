@@ -23,6 +23,9 @@ public class Biblioteca {
         listaAutores=new ArrayList();
         
         inicializar();
+        
+        
+        
     }
 
     public String getNombre() {
