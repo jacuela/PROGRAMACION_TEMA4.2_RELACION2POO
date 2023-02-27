@@ -31,7 +31,7 @@ public class Inicio {
         miEmpresa.addCliente("Mortadelo", "morta@kk.com", "Lorca");
         miEmpresa.addCliente("Filemon", "filemon@kk.com", "Aguilas");
        
-        miEmpresa.addVehiculo("1111AAA", "Audi", "A4", Empresa.getPrecioDiaDefecto());
+        miEmpresa.addVehiculo("1111AAA", "Audi", "A4", Vehiculo.getPrecioDiaDefecto());
         miEmpresa.addVehiculo("2222AAA", "Volvo", "XC60", 40);
         miEmpresa.addVehiculo("3333AAA", "Seat", "Ibiza", 20);
         
@@ -70,12 +70,12 @@ public class Inicio {
                         System.out.print("  >Marca y modelo: ");
                         String marca=teclado.next();
                         String modelo=teclado.nextLine();
-                        System.out.printf("  >Precio/dia [INTRO para %.1f €/dia]: ",Empresa.getPrecioDiaDefecto());
+                        System.out.printf("  >Precio/dia [INTRO para %.1f €/dia]: ",Vehiculo.getPrecioDiaDefecto());
                         String precio=teclado.nextLine(); //lo recojo como String para comprobar si es por defecto
                         
                         double precio_dia;
                         if (precio.equals("")){
-                            precio_dia=Empresa.getPrecioDiaDefecto();
+                            precio_dia=Vehiculo.getPrecioDiaDefecto();
                         }else{
                             precio_dia=Double.parseDouble(precio);
                         }
@@ -131,7 +131,24 @@ public class Inicio {
                         break;
                         
                 case 5: miEmpresa.listarAlquileresTodos();
+                        System.out.print("ID alquiler para detalle [INTRO para salir]: ");
+                        String idString=teclado.nextLine();
+                        if (!idString.equals("")){
+                            int idAlquiler=Integer.parseInt(idString);
+                            Alquiler a=miEmpresa.getAlquiler(idAlquiler);
+                            if (a!=null){
+                                a.imprimirDetalles();
+                            }
+                            else{
+                               System.out.println("ERROR. ID de alquiler no encontrado"); 
+ 
+                            }
+                        }
                         break;
+                        
+                case 6: System.out.println("Bye bye");
+                        break;
+                
                 default:System.out.println("ERROR: Opcion no válida");
             }
       

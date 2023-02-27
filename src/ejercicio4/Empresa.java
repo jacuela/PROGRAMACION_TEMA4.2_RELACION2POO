@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 public class Empresa {
     
-    private static double precioDiaDefecto=30;
     
     private String nombreEmpresa;
     private ArrayList<Cliente> listaClientes;
@@ -28,10 +27,6 @@ public class Empresa {
     }
     
     //---------- getter and setter -----------
-
-    public static double getPrecioDiaDefecto() {
-        return precioDiaDefecto;
-    }
 
     public String getNombreEmpresa() {
         return nombreEmpresa;
@@ -72,10 +67,7 @@ public class Empresa {
         listaVehiculos.add(new Vehiculo(matricula, marca, modelo, precio_dia));
     }
     
-    public void addVehiculo(String matricula, String marca, String modelo){
-        listaVehiculos.add(new Vehiculo(matricula, marca, modelo));
-    }
-    
+   
     
     public Vehiculo getVehiculo(String matricula){
         for (Vehiculo v : listaVehiculos) {
@@ -110,6 +102,15 @@ public class Empresa {
         return null;
     }
      
+    public Alquiler getAlquiler(int idAlquiler){
+        for (Alquiler a : listaAlquileres) {
+            if (a.getId()==idAlquiler){
+                return a;
+            }
+            
+        }
+        return null;
+    }
      
      
     public void listarAlquileresTodos(){

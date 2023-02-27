@@ -14,7 +14,7 @@ public class Cliente {
     private String email;
     private String localidad;
     
-    private static int contadorID=1001;
+    private static int contadorID=1001; //codigo inicial
 
     public Cliente(String nombre, String email, String localidad) {
         this.nombre = nombre;

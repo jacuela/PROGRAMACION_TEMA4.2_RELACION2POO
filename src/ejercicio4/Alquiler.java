@@ -21,10 +21,10 @@ public class Alquiler {
     private LocalDate fecha_devolucion;
     private double importe;
     private boolean finalizado;
-    private int diasAlquiler;
     
-    private static int IVA=21;
+    private static double IVA=21;
     private static int contadorID=1;
+    private int diasAlquiler;
     
     public Alquiler(Cliente cliente, Vehiculo vehiculo, LocalDate fecha_alquiler) {
         this.cliente = cliente;
@@ -33,8 +33,8 @@ public class Alquiler {
         this.fecha_alquiler = fecha_alquiler;
         this.fecha_devolucion = null;
         this.finalizado=false;
-        this.diasAlquiler = -1;
         this.importe = -1;
+        this.diasAlquiler = -1;
         this.id = Alquiler.contadorID;
         Alquiler.contadorID++;
         
@@ -55,6 +55,16 @@ public class Alquiler {
     public boolean isFinalizado() {
         return finalizado;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
     
     
     
@@ -70,8 +80,18 @@ public class Alquiler {
     
     private double calcularImporte(){
         int dias=(int)ChronoUnit.DAYS.between(fecha_alquiler, fecha_devolucion);
-        this.diasAlquiler=dias;
-        return dias*this.vehiculo.getPrecio_dia();
+        
+        //Si lo devuelvo el mismo dia, se cobra 1 día
+        if (dias==0){
+            dias=1;
+        }
+        this.diasAlquiler=dias;  //relleno el atributo de los dias alquilado
+        
+        double subtotal=dias*this.vehiculo.getPrecio_dia();
+        double iva=subtotal*(Alquiler.IVA/100);
+        double importeConIVA=subtotal+iva; 
+        
+        return importeConIVA;
     }
     
     
@@ -84,32 +104,31 @@ public class Alquiler {
         this.finalizado=true;
         
         //Muestro info del alquiler
+        this.imprimirDetalles();
         
-        System.out.printf("  [%s ha estado %d dias alquilado - IMPORTE: %.2f €]\n",this.vehiculo.getMatricula(), this.diasAlquiler, this.importe);
         
     }
     
     public void imprimirDetalles(){
         DateTimeFormatter dtf=DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        
-        System.out.printf("DETALLES DEL ALQUILER");
-        System.out.printf("---------------------");
-        System.out.printf("ID:             %d",this.id);
-        System.out.printf("Matricula:      %s",this.vehiculo.getMatricula());
-        System.out.printf("Cliente:        %s - %s",this.cliente.getNombre(),this.cliente.getEmail());
-        System.out.printf("Fecha alquiler: %s",this.fecha_alquiler.format(dtf));
         System.out.println("");
+        System.out.printf("---------------------------\n");
+        System.out.printf("DETALLES DEL ALQUILER\n");
+System.out.printf("ID:             %d\n",this.id);
+        System.out.printf("Matricula:      %s\n",this.vehiculo.getMatricula());
+        System.out.printf("Cliente:        %s\n",this.cliente.getNombre());
+        System.out.printf("Fecha alquiler: %s\n",this.fecha_alquiler.format(dtf));
         if (this.finalizado==true){  //Podria haber comprobado si la fecha de devolucion era null o importe -1
-            System.out.printf("Fecha devoluc:  %s",this.fecha_devolucion.format(dtf));
-            System.out.printf("Dias alquilado: %d",this.diasAlquiler);
+            System.out.printf("Fecha devoluc:  %s\n",this.fecha_devolucion.format(dtf));
+            System.out.printf("Dias alquilado: %d\n",this.diasAlquiler);
             System.out.println("");
-            System.out.printf("Importe: %.2f",this.importe);
+            System.out.printf("Importe: %.2f €\n",this.importe);
         }
         else{
-            System.out.printf("AÚN EN ALQUILER");
+            System.out.printf("AÚN EN ALQUILER\n");
         }
         
-        System.out.printf("---------------------"); 
+        System.out.printf("---------------------------\n"); 
          
          
     }

@@ -15,18 +15,15 @@ public class Vehiculo {
     private boolean alquilado;
     private double precio_dia;
 
+    private static double precioDiaDefecto=30;
+
+    
     public Vehiculo(String matricula, String marca, String modelo, double precio_dia) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
         this.precio_dia = precio_dia;
-    }
-    
-    public Vehiculo(String matricula, String marca, String modelo) {
-        this.matricula = matricula;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.precio_dia = Empresa.getPrecioDiaDefecto();
+        this.alquilado = false;
     }
     
     
@@ -55,6 +52,11 @@ public class Vehiculo {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
+
+    public static double getPrecioDiaDefecto() {
+        return precioDiaDefecto;
+    }
+    
     
     
     
