@@ -136,7 +136,7 @@ System.out.printf("ID:             %d\n",this.id);
     public String aCadena(){
         DateTimeFormatter dtf=DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        if (this.importe!=-1){
+        if (this.finalizado){
             return String.format("%d %s %s %.2f €",this.id, this.vehiculo.getMatricula(), this.fecha_alquiler.format(dtf),this.importe);
         }
         else{
