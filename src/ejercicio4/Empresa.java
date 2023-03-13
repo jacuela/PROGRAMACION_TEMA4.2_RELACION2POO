@@ -165,7 +165,8 @@ public class Empresa {
             return false;
         }
         
-        //Buscamos el alquiler
+        //Buscamos el alquiler del coche. Ojo, debe devolver
+        //el último alquiler, donde el coche este aún alquilado
         Alquiler alquiler=this.getAlquiler(matricula);
         if (alquiler==null){
             System.out.println("  >ERROR: alquiler no encontrado");

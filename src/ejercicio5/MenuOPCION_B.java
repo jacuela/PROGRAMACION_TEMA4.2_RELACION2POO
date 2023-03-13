@@ -117,7 +117,7 @@ public class MenuOPCION_B {
             //banco.listarCuentas(cliente);
             
             lista=banco.getCuentas(cliente);
-            if (lista!=null){
+            if (!lista.isEmpty()){
                 for (CuentaCorriente cc : lista) {
                     System.out.println(cc.aCadena());
                 }    

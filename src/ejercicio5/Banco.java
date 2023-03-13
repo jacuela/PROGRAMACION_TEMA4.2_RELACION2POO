@@ -88,12 +88,7 @@ public class Banco {
             }
         }
         
-        if (listaCoincidencias.isEmpty()){
-            return null;
-        }
-        else{
-            return listaCoincidencias;
-        }
+        return listaCoincidencias;
         
     }
     
