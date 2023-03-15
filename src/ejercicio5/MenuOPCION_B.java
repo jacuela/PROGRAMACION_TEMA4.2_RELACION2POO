@@ -171,7 +171,6 @@ public class MenuOPCION_B {
                         System.out.print("Numero de cuenta para el reintegro: ");
                         num = Integer.parseInt(entrada.nextLine());
                         
-                        
                         CuentaCorriente cc=banco.buscarCuenta(num);
                         if(cc!=null){
                             do{

@@ -77,7 +77,7 @@ public class Ferreteria {
         System.out.println("  REF     DESCRIPCION      PRECIO      UNIDADES");
         System.out.println("-----------------------------------------------");
         for (Producto p : almacenProductos) {
-            System.out.println(p.toString());
+            System.out.println(p);
             
         }
         System.out.println("===============================================");

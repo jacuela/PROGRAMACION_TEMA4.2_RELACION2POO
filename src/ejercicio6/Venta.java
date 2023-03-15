@@ -78,6 +78,7 @@ public class Venta {
         System.out.println("\033[34m---------------------------------------------");
         for (LineaVenta linea : lineas) {
             linea.imprimirLinea();
+            //System.out.println(linea); //si lo hubieramos programado toString()
         }
         System.out.println("");
         System.out.printf("\033[34m                          Subtotal: %.2f €\n",this.getSubtotal());

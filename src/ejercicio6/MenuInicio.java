@@ -12,6 +12,8 @@ import java.util.Scanner;
  */
 public class MenuInicio {
 
+      
+    
     /**
      * @param args the command line arguments
      */
@@ -60,7 +62,8 @@ public class MenuInicio {
                     do{
 
                         //Pido los datos del cliente
-                        System.out.print(">Referencia del producto [INTRO para fin]: "); ref=teclado.nextLine();
+                        System.out.print(">Referencia del producto [INTRO para fin]: "); 
+                        ref=teclado.nextLine();
 
                         if (!ref.equals("")){
                             do{
@@ -108,10 +111,6 @@ public class MenuInicio {
             }
         } while (opcion != 4);
     }
-
-
-    
-    
     
     
     private static void submenuAlmacen(Ferreteria f) {
@@ -150,7 +149,7 @@ public class MenuInicio {
                 case 2:
                     boolean operacionOK;
                     do{
-                        System.out.print(">Referencia del producto: ");
+                        System.out.print(">Num Referencia del producto: ");
                         ref = teclado.nextLine();
                         ref = "REF" + ref;
                         
@@ -177,12 +176,6 @@ public class MenuInicio {
     
     
     }
-        
-        
-        
-        
-        
-        
     
     
 }
