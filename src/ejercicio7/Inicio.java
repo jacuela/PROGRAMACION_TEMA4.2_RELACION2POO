@@ -30,7 +30,7 @@ public class Inicio {
         Equipo equipo;
         
         //Campeonato de 3 equipos 
-        Campeonato ligaArcas = new Campeonato("Liga ARCAS",3);
+        Campeonato ligaArcas = new Campeonato("Liga ARCAS",10);
 
         
         
@@ -44,7 +44,7 @@ public class Inicio {
         
         ligaArcas.altaEquipo("Real de Madrid");
         ligaArcas.altaEquipo("Barcagate");
-        
+        ligaArcas.altaEquipo("Lorca FC");
         
         //   ***********************************************************
         
@@ -107,6 +107,11 @@ public class Inicio {
                     fichar(equipo);
                     break;
                 case 4:
+                    ligaArcas.jugarCampeonato();
+                    ligaArcas.mostrarClasificacion();
+                    System.out.println("");
+                    System.out.println(" -- PULSA INTRO PARA CONTINUAR --");
+                    tecla=teclado.nextLine();
                     
                     break;
                 case 5:

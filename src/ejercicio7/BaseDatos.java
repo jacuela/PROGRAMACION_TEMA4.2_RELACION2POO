@@ -32,6 +32,10 @@ public class BaseDatos {
         listaEquipos.add(e);
     }
     
+    public static void addPartido(Partido p){
+        listaPartidos.add(p);
+    }
+    
     
     public static  void listarJugadores(){
         System.out.println("");
@@ -73,6 +77,19 @@ public class BaseDatos {
         //System.out.println("");
         return null;
     }
+    
+    
+    public static Equipo obtenerEquipoPosi(int posicion){
+        
+        if (posicion<BaseDatos.listaEquipos.size()){
+            return BaseDatos.listaEquipos.get(posicion);
+        }else{
+            System.out.println("  >ERROR: no existe equipo en esa posicion");
+            return null;
+        }
+        
+    }
+    
     
     
     public static Jugador obtenerJugador(int dorsal){
