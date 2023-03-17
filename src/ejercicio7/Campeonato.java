@@ -96,11 +96,7 @@ public class Campeonato {
         // 1 vs 0     1 vs 2
         // 2 vs 0     2 vs 1
         if (this.equiposInscritos==3){
-            System.out.println("");
-            System.out.println("JUGANDO EL CAMPEONATO........");
-            try { Thread.sleep(1000); }
-            catch(InterruptedException ex){ex.printStackTrace();}
-
+            
             BaseDatos.addPartido(new Partido(BaseDatos.obtenerEquipoPosi(0),BaseDatos.obtenerEquipoPosi(1)));
             BaseDatos.addPartido(new Partido(BaseDatos.obtenerEquipoPosi(0),BaseDatos.obtenerEquipoPosi(2)));
             BaseDatos.addPartido(new Partido(BaseDatos.obtenerEquipoPosi(1),BaseDatos.obtenerEquipoPosi(0)));

@@ -63,6 +63,15 @@ public class BaseDatos {
      
     
     public static  void listarPartidos(){
+        System.out.println("");
+        System.out.println("======  LISTADO DE PARTIDOS  ======");
+        for (Partido p : listaPartidos) {
+            System.out.println(p);
+        }
+        System.out.println("===================================");
+        System.out.println("");
+        System.out.println("");
+        
         
         
     }

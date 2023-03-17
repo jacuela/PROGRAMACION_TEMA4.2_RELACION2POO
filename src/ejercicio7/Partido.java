@@ -11,12 +11,19 @@ package ejercicio7;
  */
 public class Partido {
     
+    private int id;
     private Equipo equipoLocal;
     private Equipo equipoVisitante;
     private int golesLocal;
     private int golesVisitante;
+    
+    private static int contadorID=1;
 
     public Partido(Equipo equipoLocal, Equipo equipoVisitante) {
+        
+        this.id=Partido.contadorID;
+        Partido.contadorID++;
+        
         this.equipoLocal = equipoLocal;
         this.equipoVisitante = equipoVisitante;
         this.golesLocal = 0;
@@ -73,8 +80,15 @@ public class Partido {
             
         }
         
-        
+    }
+    
+    @Override
+    public String toString(){
+        return String.format("%3d - [%s vs %s]",this.id,this.equipoLocal.getNombre(),this.equipoVisitante.getNombre());
         
     }
+    
+    
+    
     
 }
