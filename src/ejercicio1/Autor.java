@@ -24,8 +24,8 @@ public class Autor {
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.email=email;
-        this.id=(int)(Math.random()*1000);
-        //this.id=Utilidades.generarIdAutor();  OPCIONAL
+        //this.id=(int)(Math.random()*1000);
+        
     }
 
     public int getId() {
