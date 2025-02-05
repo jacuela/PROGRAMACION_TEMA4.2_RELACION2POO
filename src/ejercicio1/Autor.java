@@ -10,12 +10,16 @@ package ejercicio1;
  * @author juan.antonio
  */
 public class Autor {
+    
+    private static int contadorID=101; //primer id de autor
+    
     private int id;
     private String nombre1;
     private String nombre2;
     private String apellido1;
     private String apellido2;
     private String email;
+    
 
     public Autor(String nombre1, String nombre2, String apellido1,
             String apellido2,String email) {
@@ -24,8 +28,11 @@ public class Autor {
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.email=email;
-        //this.id=(int)(Math.random()*1000);
         
+        //Genero el id del autor a partir de un atrib estatico
+        this.id = Autor.contadorID;
+        Autor.contadorID++;
+   
     }
 
     public int getId() {
@@ -44,8 +51,7 @@ public class Autor {
         this.email = email;
     }
     
-    
-    
+        
     public String getNombreCita(){
         
        StringBuilder sb=new StringBuilder();

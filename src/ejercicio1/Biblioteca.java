@@ -127,14 +127,25 @@ public class Biblioteca {
     public boolean prestarLibro(String ref){
         Libro unLibro;
         
-        for (int i = 0; i < listaLibros.size(); i++) {
-            unLibro=listaLibros.get(i);
-            if (unLibro.getCodigo().equals(ref)){
-                unLibro.setPrestado(true);
-                return true;
-            }    
+        for (Libro libro : listaLibros) {
+            if (libro.getCodigo().equalsIgnoreCase(ref)){
+                //He encontrado el libro a prestar
+                //Compruebo que no esta ya prestado
+                
+                if (!libro.isPrestado()){
+                    libro.setPrestado(true);
+                    return true;
+                }
+                else{
+                    System.out.println("\033[31mERROR: el libro ya está prestado\033[30m");
+                    return false;
+                }
+                
+            }  
         }
-        //System.out.println("ref no encontrada");
+        
+        //Si llego aquí, es porque no he encontrado el libro
+        System.out.println("\033[31mERROR: no existe dicha referencia de libro\033[30m");
         return false;
         
         

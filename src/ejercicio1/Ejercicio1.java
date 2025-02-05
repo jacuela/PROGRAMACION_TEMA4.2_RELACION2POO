@@ -88,7 +88,7 @@ public class Ejercicio1 {
                     System.out.print("Referencia a prestar: ");
                     ref=teclado.nextLine();
                     if (miBiblio.prestarLibro(ref)==false)
-                        System.out.println("error al prestar libro");
+                        System.out.println("Error al prestar libro");
                     break;
                 case 6:
                     System.out.println("");
