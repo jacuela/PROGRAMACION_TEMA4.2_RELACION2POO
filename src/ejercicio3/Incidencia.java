@@ -63,12 +63,36 @@ public class Incidencia {
 
         
         if (this.estado==Estado.PENDIENTE){
-            cadena=String.format("\033[31m [%10s] %d %25s [%s] \033[30m", this.estado, this.codigo, this.descripcion, this.fecha_inicidencia.format(dtf));
+            cadena=String.format("\033[31m [%10s] %d %30s [%s] \033[30m", 
+                    this.estado, 
+                    this.codigo, 
+                    this.acortarDescripcion(), 
+                    this.fecha_inicidencia.format(dtf));
         }
         else{
-            cadena=String.format("\033[32m [%10s] %d %25s [%s] \033[30m", this.estado, this.codigo, this.descripcion, this.fecha_inicidencia.format(dtf));
+            cadena=String.format("\033[32m [%10s] %d %30s [%s] \033[30m", 
+                    this.estado, 
+                    this.codigo, 
+                    this.acortarDescripcion(), 
+                    this.fecha_inicidencia.format(dtf));
         }
         return cadena;
+        
+    }
+    
+    
+    private String acortarDescripcion(){
+        //Metodo que devuelve la descripcion con un
+        //tamaño de 30 caracteres maximo
+        if (this.descripcion.length()<=30){
+            return this.descripcion;
+        }
+        else{
+            //La acortamos a 27 y metemos tres puntitos
+            String descripcionCorta = this.descripcion.substring(0, 27);
+            descripcionCorta = descripcionCorta + "...";
+            return descripcionCorta;
+        }
         
     }
     

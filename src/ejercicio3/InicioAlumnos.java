@@ -35,12 +35,12 @@ public class InicioAlumnos {
         //***********************************************
         do{
             System.out.println("");System.out.println("");
-            System.out.println("===========================================================");
+            System.out.println("===============================================================");
             System.out.println("GESINTIC");
             System.out.println(LocalDate.now().format(dtf)+" - "+LocalTime.now().format(dtf_hora));
-            System.out.println("===========================================================");
+            System.out.println("===============================================================");
             migestor.listarIncidencias();
-            System.out.println("===========================================================");
+            System.out.println("===============================================================");
             System.out.println("");
             System.out.println("1. Nueva Incidencia");
             System.out.println("2. Resolver Incidencia");
