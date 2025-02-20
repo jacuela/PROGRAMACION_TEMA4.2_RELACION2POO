@@ -64,7 +64,17 @@ public class Empresa {
 
     //-------------Gestion de la lista de vehiculos --------
     public void addVehiculo(String matricula, String marca, String modelo, double precio_dia){
-        listaVehiculos.add(new Vehiculo(matricula, marca, modelo, precio_dia));
+        if (precio_dia==0){
+            //precio dia por defecto. llamo al constructor 1
+            listaVehiculos.add(new Vehiculo(matricula, marca, modelo));
+        }
+        else{
+            //precio dia definido. llamo al constructor 2
+            listaVehiculos.add(new Vehiculo(matricula, marca, modelo, precio_dia));
+        }
+        
+        
+        
     }
     
    

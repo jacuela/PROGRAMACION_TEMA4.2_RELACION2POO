@@ -75,12 +75,13 @@ public class Inicio {
                         
                         double precio_dia;
                         if (precio.equals("")){
-                            precio_dia=Vehiculo.getPrecioDiaDefecto();
+                            //precio por dia por defecto
+                            miEmpresa.addVehiculo(matri, marca, modelo, 0); //0 indica precio por defecto
+                            
                         }else{
                             precio_dia=Double.parseDouble(precio);
+                            miEmpresa.addVehiculo(matri, marca, modelo, precio_dia);
                         }
-                            
-                        miEmpresa.addVehiculo(matri, marca, modelo, precio_dia);
                         break;
                         
                 case 3: System.out.println("--- Alquilando vehiculo ---");

@@ -18,6 +18,16 @@ public class Vehiculo {
     private static double precioDiaDefecto=30;
 
     
+    //Constructor1 con precio por dia por defecto
+    public Vehiculo(String matricula, String marca, String modelo) {
+        this.matricula = matricula;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.precio_dia = Vehiculo.getPrecioDiaDefecto();
+        this.alquilado = false;
+    }
+    
+    //Constructor2 con precio por dia definido
     public Vehiculo(String matricula, String marca, String modelo, double precio_dia) {
         this.matricula = matricula;
         this.marca = marca;
