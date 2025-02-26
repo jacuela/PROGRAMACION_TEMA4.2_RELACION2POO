@@ -67,12 +67,25 @@ public class CuentaCorriente {
     
     public boolean transferencia(CuentaCorriente cuentaDestino,double importe){
         
-        if (this.reintegro(importe)==true){
+        if (this.reintegro(importe)==true){  //aqui se ve como uso el booleano de reintegro
             cuentaDestino.ingreso(importe);
             return true;
         }else{
             return false;
         }
+        
+        //OTRA FORMA, SIN USAR EL MÉTODO YA PROGRAMADO
+//        if (this.saldo < cantidad){
+//            System.out.println("ERROR, saldo insuficente. No puedo hacer la transferencia");
+//            return false;
+//        }
+//        else{
+//            //hay saldo
+//            this.saldo = this.saldo - cantidad;
+//            cuentaDestino.ingreso(cantidad);
+//            return true;
+//        }
+        
         
     }
     

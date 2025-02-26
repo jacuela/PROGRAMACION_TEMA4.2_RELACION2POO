@@ -59,36 +59,33 @@ public class Banco {
     
     public CuentaCorriente buscarCuenta(int numero){
         
-        CuentaCorriente cc;
-        
-        for (int i = 0; i < this.listaCuentas.size(); i++) {
-            cc=this.listaCuentas.get(i);
-            if (cc.getNumero()==numero)
+        for (CuentaCorriente cc : listaCuentas) {
+            if (cc.getNumero()==numero){
                 return cc;
+            }
         }
+        
         return null;
     }
     
     
 
-    public ArrayList<CuentaCorriente> getCuentas(Cliente c){
-        ArrayList<CuentaCorriente> listaCoincidencias=new ArrayList();
-      
-        
-        //*********** ¿Puedo comparar dos objetos??????
-        //¿puedo comparar el objeto c con cada uno de los clientes 
-        //de las cuentas de la lista?
-        
-        //En este caso, SÍ, porque es el mismo objeto CLIENTE que me lo he
-        //ido llevando a diferentes sitios.
-        
-        for (CuentaCorriente cc : listaCuentas) {
-            if (cc.getTitular()==c){   //Sí puedo comparar dos objetos
-                listaCoincidencias.add(cc);
+    public ArrayList<CuentaCorriente> getCuentas(Cliente cliente){
+        ArrayList<CuentaCorriente> listaResultado=new ArrayList();  //lista de las cuentas del cliente
+       
+       for (CuentaCorriente cc : listaCuentas) {
+           
+           //Podria funcuionar, pero ojo al comparar objetos
+           //if (cc.getTitular()==cliente){
+           //    
+           //}
+           
+            if (cc.getTitular().getDNI().equalsIgnoreCase(cliente.getDNI())){
+               listaResultado.add(cc);
             }
-        }
-        
-        return listaCoincidencias;
+       }
+       
+       return listaResultado;
         
     }
     
@@ -111,8 +108,8 @@ public class Banco {
         System.out.println("=====================================================");
         System.out.println("\033[34m                  LISTADO DE CLIENTES          ");
         System.out.println("\033[34m     DNI          Nombre               e-mail         ");
-        for (int i = 0; i < this.listaClientes.size(); i++) {
-            System.out.println(this.listaClientes.get(i).aCadena());
+        for (Cliente cliente : listaClientes) {
+            System.out.println(cliente.aCadena());
         }
         System.out.println("=====================================================");
         System.out.println("");System.out.println("");
